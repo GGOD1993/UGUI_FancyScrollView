@@ -660,24 +660,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ca84fc24d3b5c458ddc24e699c5812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputType: 0
   scaleCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 0
+      value: 0.37431914
+      inSlope: 0
+      outSlope: 1.2677282
+      tangentMode: 69
     - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
+      time: 0.5
+      value: 1.0081832
+      inSlope: 1.2677282
+      outSlope: -1.2398686
+      tangentMode: 69
+    m_PreInfinity: 0
+    m_PostInfinity: 0
     m_RotationOrder: 0
   positionCurve:
     serializedVersion: 2
@@ -685,17 +684,17 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
+    m_PreInfinity: 1
+    m_PostInfinity: 1
     m_RotationOrder: 0
   depthCurve:
     serializedVersion: 2
@@ -704,23 +703,23 @@ MonoBehaviour:
       time: 0
       value: 0
       inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      outSlope: 2
+      tangentMode: 69
     - serializedVersion: 2
       time: 0.5
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 2
+      outSlope: -2
+      tangentMode: 69
     - serializedVersion: 2
       time: 1
       value: 0
-      inSlope: 0
+      inSlope: -2
       outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+      tangentMode: 69
+    m_PreInfinity: 1
+    m_PostInfinity: 1
+    m_RotationOrder: 0
   startCenterIndex: 2
   cellWidth: 100
   yFixedPositionValue: 46
@@ -728,7 +727,13 @@ MonoBehaviour:
   enableLerpTween: 1
   curHorizontalValue: 0.5
   sourceCamera: {fileID: 1115046219}
-  listEnhanceItems: []
+  listEnhanceItems:
+  - {fileID: 1799347342}
+  - {fileID: 421181029}
+  - {fileID: 1812138677}
+  - {fileID: 1198309956}
+  - {fileID: 1618019042}
+  - {fileID: 1415820653}
   factor: 0.006
 --- !u!1 &1115046215
 GameObject:
