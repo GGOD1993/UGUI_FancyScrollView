@@ -4,14 +4,6 @@ using System.Collections.Generic;
 
 public class EnhanceScrollView : MonoBehaviour
 {
-    public enum InputSystemType
-    {
-        NGUIAndWorldInput, // use EnhanceScrollViewDragController.cs to get the input(keyboard and touch)
-        UGUIInput,         // use UDragEnhanceView for each item to get drag event
-    }
-
-    // Input system type(NGUI or 3d world, UGUI)
-    public InputSystemType inputType = InputSystemType.NGUIAndWorldInput;
     // Control the item's scale curve
     public AnimationCurve scaleCurve;
     // Control the position curve
@@ -54,48 +46,17 @@ public class EnhanceScrollView : MonoBehaviour
     // Drag enhance scroll view
     [Tooltip("Camera for drag ray cast")]
     public Camera sourceCamera;
-    //private EnhanceScrollViewDragController dragController;
-
-    public void EnableDrag(bool isEnabled)
-    {
-        //if (isEnabled)
-        //{
-        //    if (inputType == InputSystemType.NGUIAndWorldInput)
-        //    {
-        //        if (sourceCamera == null)
-        //        {
-        //            Debug.LogError("## Source Camera for drag scroll view is null ##");
-        //            return;
-        //        }
-
-        //        if (dragController == null)
-        //            dragController = gameObject.AddComponent<EnhanceScrollViewDragController>();
-        //        dragController.enabled = true;
-        //        // set the camera and mask
-        //        dragController.SetTargetCameraAndMask(sourceCamera, (1 << LayerMask.NameToLayer("UI")));
-        //    }
-        //}
-        //else
-        //{
-        //    if (dragController != null)
-        //        dragController.enabled = false;
-        //}
-    }
 
     // targets enhance item in scroll view
     public List<EnhanceItem> listEnhanceItems;
     // sort to get right index
     private List<EnhanceItem> listSortedItems = new List<EnhanceItem>();
 
-    private static EnhanceScrollView instance;
-    public static EnhanceScrollView GetInstance
-    {
-        get { return instance; }
-    }
+    public static EnhanceScrollView GetInstance { get; private set; }
 
     void Awake()
     {
-        instance = this;
+        GetInstance = this;
     }
 
     void Start()
@@ -114,18 +75,9 @@ public class EnhanceScrollView : MonoBehaviour
             listEnhanceItems[i].SetSelectState(false);
             GameObject obj = listEnhanceItems[i].gameObject;
 
-            if (inputType == InputSystemType.NGUIAndWorldInput)
-            {
-                //DragEnhanceView script = obj.GetComponent<DragEnhanceView>();
-                //if (script != null)
-                //    script.SetScrollView(this);
-            }
-            else
-            {
-                UDragEnhanceView script = obj.GetComponent<UDragEnhanceView>();
-                if (script != null)
-                    script.SetScrollView(this);
-            }
+            UDragEnhanceView script = obj.GetComponent<UDragEnhanceView>();
+            if (script != null)
+                script.SetScrollView(this);
             index++;
         }
 
@@ -146,7 +98,6 @@ public class EnhanceScrollView : MonoBehaviour
         // 
         // enable the drag actions
         // 
-        EnableDrag(true);
     }
 
     private void LerpTweenToTarget(float originValue, float targetValue, bool needTween = false)
